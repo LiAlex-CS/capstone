@@ -1,0 +1,3 @@
+const RECAPTCHA_SITE_KEY = process.env.GATSBY_RECAPTCHA_SITE_KEY;
+
+export { RECAPTCHA_SITE_KEY };
