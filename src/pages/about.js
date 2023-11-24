@@ -101,18 +101,6 @@ export default function About({ data }) {
             </M.div>
           );
         })}
-        {/* 
-        <div className="rounded-3xl bg-primary-400 dark:bg-primary-dark-200 flex flex-row flex-wrap text-start items-center my-8 w-11/12 lg:w-3/4 2xl:w-1/2 p-8">
-          <H2 className="mb-10">Personal Hobbies & Recreation</H2>
-          <PLarge>
-            Lorem ipsum dolor sit amet consectetur. Auctor ultricies at quis
-            pellentesque euismod eget gravida. Vel nunc odio ut venenatis
-            faucibus blandit sed enim lectus. Orci gravida ipsum sem diam
-            facilisi varius. Augue nam orci nisl mauris. Pretium volutpat justo
-            varius ornare porta. Sed sit id id quam. Id et vel amet tempor sit
-            augue nisl aliquam neque.
-          </PLarge>
-        </div> */}
       </M.div>
     </Layout>
   );

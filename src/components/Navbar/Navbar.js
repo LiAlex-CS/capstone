@@ -73,21 +73,14 @@ const Navbar = () => {
             <li>
               <Link to="/about" aria-current="page">
                 <H4 className="hover:text-secondary-300 dark:hover:text-secondary-dark-300">
-                  About Me
+                  Meet the Team
                 </H4>
               </Link>
             </li>
             <li>
-              <Link to="/experience" aria-current="page">
+              <Link to="/blog" aria-current="page">
                 <H4 className="hover:text-secondary-300 dark:hover:text-secondary-dark-300">
-                  Experience
-                </H4>
-              </Link>
-            </li>
-            <li>
-              <Link to="/contact" aria-current="page">
-                <H4 className="hover:text-secondary-300 dark:hover:text-secondary-dark-300">
-                  Contact
+                  Progress Blog
                 </H4>
               </Link>
             </li>
