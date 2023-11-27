@@ -49,7 +49,7 @@ module.exports = {
     },
   ],
   siteMetadata: {
-    title: "Alex Li - Portfolio",
+    title: "MTE Capstone",
     description:
       "Hey! I'm Alex 👋. You've stumbled across by my portfolio website. Please take some time and read a little about me!",
     siteUrl: "https://alex-li.me",

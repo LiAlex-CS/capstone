@@ -1,8 +1,8 @@
-const TITLE = "Alex Li: Soft Dev";
+const TITLE = "Project Process";
 const TOOLS_I_USE = "Tools that I use:";
 const CONSTRUCTION_TOOLS =
   "As an example, the website you are on is constructed with the following tools:";
-const EXPERIENCES = "Some of my work experiences:";
+const UPDATES = "Some of the project development updates:";
 const PATH = "/experience";
 const SEO_TITLE = "Experience: Alex Li - Portfolio";
 const SEO_DESCRIPTION =
@@ -12,7 +12,7 @@ const strings = {
   TITLE,
   TOOLS_I_USE,
   CONSTRUCTION_TOOLS,
-  EXPERIENCES,
+  UPDATES,
   PATH,
   SEO_TITLE,
   SEO_DESCRIPTION,

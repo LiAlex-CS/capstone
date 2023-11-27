@@ -69,10 +69,10 @@ const AboutMeSection = ({ header, body, imageData, caption, className }) => {
 };
 
 export default function About({ data }) {
-  const aboutMeData = data.allContentfulAboutMeSection.nodes;
-  const sortedAboutMeData = aboutMeData.sort(
-    (sectionA, sectionB) => sectionA.order - sectionB.order
-  );
+  // const aboutMeData = data.allContentfulAboutMeSection.nodes;
+  // const sortedAboutMeData = aboutMeData.sort(
+  //   (sectionA, sectionB) => sectionA.order - sectionB.order
+  // );
 
   return (
     <Layout>
@@ -84,7 +84,7 @@ export default function About({ data }) {
         exit={fadeIn.exit}
       >
         <Title className="my-16 lg:mt-28 xl:mt-36">{strings.TITLE}</Title>
-        {sortedAboutMeData.map((section, index) => {
+        {/* {sortedAboutMeData.map((section, index) => {
           return (
             <M.div
               initial={fadeIn.initial}
@@ -100,7 +100,7 @@ export default function About({ data }) {
               />
             </M.div>
           );
-        })}
+        })} */}
       </M.div>
     </Layout>
   );
@@ -114,22 +114,22 @@ export const Head = () => (
   />
 );
 
-export const query = graphql`
-  query AboutMeQuery {
-    allContentfulAboutMeSection {
-      nodes {
-        contentful_id
-        header
-        body {
-          body
-        }
-        image {
-          gatsbyImageData(layout: FULL_WIDTH)
-          description
-        }
-        imageCaption
-        order
-      }
-    }
-  }
-`;
+// export const query = graphql`
+//   query AboutMeQuery {
+//     allContentfulAboutMeSection {
+//       nodes {
+//         contentful_id
+//         header
+//         body {
+//           body
+//         }
+//         image {
+//           gatsbyImageData(layout: FULL_WIDTH)
+//           description
+//         }
+//         imageCaption
+//         order
+//       }
+//     }
+//   }
+// `;

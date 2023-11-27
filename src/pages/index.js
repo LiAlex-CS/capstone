@@ -12,8 +12,8 @@ import SEOHead from "../services/metadata/SEO";
 import strings from "../static_strings/index.strings";
 
 export default function Home({ data }) {
-  const introText = data.contentfulIntroText.text.text;
-  const resumeUrl = data.contentfulFile.file.file.url;
+  // const introText = data.contentfulIntroText.text.text;
+  // const resumeUrl = data.contentfulFile.file.file.url;
 
   const LINKEDIN_LINK = "LinkedIn link";
   const GITHUB_LINK = "Github link";
@@ -36,7 +36,7 @@ export default function Home({ data }) {
               <PortfolioSVG />
             </h1>
             <div className="mt-6 max-w-3xl">
-              <PLarge>{introText}</PLarge>
+              {/* <PLarge>{introText}</PLarge> */}
             </div>
           </div>
           <M.div
@@ -59,7 +59,7 @@ export default function Home({ data }) {
             </M.div>
           </M.div>
         </div>
-        <div className="flex flex-row flex-wrap justify-center">
+        {/* <div className="flex flex-row flex-wrap justify-center">
           <div className="flex flex-row my-12 md:mt-6">
             <M.a
               href="https://www.linkedin.com/in/zishu-alex-li-54b35718b/"
@@ -112,7 +112,7 @@ export default function Home({ data }) {
               <HiOutlineDocumentText className="text-typography dark:text-typography-dark text-3xl transform transition duration-200 group-hover:scale-110" />
             </M.a>
           </div>
-        </div>
+        </div> */}
       </M.div>
     </Layout>
   );
@@ -120,19 +120,19 @@ export default function Home({ data }) {
 
 export const Head = () => <SEOHead />;
 
-export const query = graphql`
-  query HomeQuery {
-    contentfulIntroText {
-      text {
-        text
-      }
-    }
-    contentfulFile(name: { eq: "Resume" }) {
-      file {
-        file {
-          url
-        }
-      }
-    }
-  }
-`;
+// export const query = graphql`
+//   query HomeQuery {
+//     contentfulIntroText {
+//       text {
+//         text
+//       }
+//     }
+//     contentfulFile(name: { eq: "Resume" }) {
+//       file {
+//         file {
+//           url
+//         }
+//       }
+//     }
+//   }
+// `;
