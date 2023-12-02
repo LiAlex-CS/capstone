@@ -1,4 +1,4 @@
-const TITLE = "A Little About Me";
+const TITLE = "About the Team";
 const PATH = "/about";
 const SEO_TITLE = "About: Alex Li - Portfolio";
 const SEO_DESCRIPTION =

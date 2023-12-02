@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "../components/Layout";
-import { PLarge, Title, H2, P } from "../components/Typography/Text";
+import { PLarge, Title, H1, H2, P, H3 } from "../components/Typography/Text";
 import { motion as M } from "framer-motion";
 import { fadeIn } from "../styles/animations";
 import { graphql } from "gatsby";
@@ -68,11 +68,34 @@ const AboutMeSection = ({ header, body, imageData, caption, className }) => {
   );
 };
 
+const PersonCard = ({ imageData, name, description }) => {
+  return (
+    <div className="rounded-3xl bg-primary-400 dark:bg-primary-dark-200 flex flex-row flex-wrap text-start justify-center items-center my-8 w-11/12 md:w-3/4 lg:w-1/2 2xl:w-2/5 py-6">
+      <div className="flex mx-3 justify-center sm:my-0">
+        <GatsbyImage
+          image={getImage(imageData)}
+          alt={imageData.description}
+          className="rounded-lg mx-3"
+        />
+      </div>
+      <div className="flex flex-col mx-5 flex-1">
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end my-3">
+          <H1>{name}</H1>
+        </div>
+        <div className="mb-3 md:mx-0">
+          <H3>{description}</H3>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export default function About({ data }) {
-  // const aboutMeData = data.allContentfulAboutMeSection.nodes;
-  // const sortedAboutMeData = aboutMeData.sort(
-  //   (sectionA, sectionB) => sectionA.order - sectionB.order
-  // );
+  const aboutMeData = data.allContentfulAboutMe.nodes;
+  console.log(aboutMeData);
+  const sortedAboutMeData = aboutMeData.sort((a, b) =>
+    a.name > b.name ? 1 : b.name > a.name ? -1 : 0
+  );
 
   return (
     <Layout>
@@ -101,6 +124,14 @@ export default function About({ data }) {
             </M.div>
           );
         })} */}
+        {sortedAboutMeData.map((aboutSection, index) => (
+          <PersonCard
+            key={index}
+            name={aboutSection.name}
+            description={aboutSection.description.description}
+            imageData={aboutSection.profilePicture}
+          />
+        ))}
       </M.div>
     </Layout>
   );
@@ -114,22 +145,19 @@ export const Head = () => (
   />
 );
 
-// export const query = graphql`
-//   query AboutMeQuery {
-//     allContentfulAboutMeSection {
-//       nodes {
-//         contentful_id
-//         header
-//         body {
-//           body
-//         }
-//         image {
-//           gatsbyImageData(layout: FULL_WIDTH)
-//           description
-//         }
-//         imageCaption
-//         order
-//       }
-//     }
-//   }
-// `;
+export const query = graphql`
+  query AboutQuery {
+    allContentfulAboutMe {
+      nodes {
+        description {
+          description
+        }
+        name
+        profilePicture {
+          gatsbyImageData(width: 270, quality: 95)
+          description
+        }
+      }
+    }
+  }
+`;

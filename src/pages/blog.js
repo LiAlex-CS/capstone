@@ -91,7 +91,14 @@ const seperateParagraphs = (text) => {
 //   );
 // };
 
-const BlogSection = ({ header, body, imageData, caption, className }) => {
+const BlogSection = ({ header, date, body, imageData, caption, className }) => {
+  const formattedDate = new Date(`${date} EDT`).toLocaleDateString("en-us", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+
   return (
     <div
       className={twMerge(
@@ -99,12 +106,11 @@ const BlogSection = ({ header, body, imageData, caption, className }) => {
         className
       )}
     >
-      <div
-        className={
-          "rounded-3xl flex flex-row flex-wrap text-start items-center my-8 w-11/12 lg:w-3/4 2xl:w-1/2 p-8 bg-primary-400 dark:bg-primary-dark-200"
-        }
-      >
-        <H2 className="mb-10">{header}</H2>
+      <div className="rounded-3xl flex flex-row flex-wrap text-start items-center my-8 w-11/12 lg:w-3/4 2xl:w-1/2 p-8 bg-primary-400 dark:bg-primary-dark-200">
+        <div className="flex flex-col">
+          <H2 className="mb-4">{header}</H2>
+          <P className="mb-4">{formattedDate}</P>
+        </div>
         {seperateParagraphs(body).map((paragraph, index) => (
           <PLarge className="my-3" key={`${header}-${index}`}>
             {paragraph}
@@ -126,10 +132,10 @@ const BlogSection = ({ header, body, imageData, caption, className }) => {
 };
 
 export default function Blog({ data }) {
-  // const experiences = data.allContentfulExperience.nodes;
-  // const sortedExperiences = experiences.sort(
-  //   (experienceA, experienceB) => experienceB.order - experienceA.order
-  // );
+  const blogs = data.allContentfulBlog.nodes;
+  const sortedBlogs = blogs.sort((a, b) =>
+    a.entryDate > b.entryDate ? 1 : b.entryDate > a.entryDate ? -1 : 0
+  );
 
   // const skills = data.allContentfulSkill.nodes.map((node) => node.skill);
 
@@ -188,10 +194,16 @@ export default function Blog({ data }) {
               key={experience.id}
             />
           ))} */}
-          <BlogSection
-            header="Test Header"
-            body="Test Body paragraph dskjfhskjdfh skjdf jhskjdfh kjsdhf ksjdfh skjdfh skjdfhskjdfh skdfh ksdfh ksjdfh ksjdhf kjsdh fkjsdh fkjsdh fkjsdhf ks dfkshdf ksd hfkjsh dfksjhdf skjdfh skjdfhksjdfh skjdhf sdfj"
-          />
+          {sortedBlogs.map((blog, index) => (
+            <BlogSection
+              key={index}
+              header={blog.header}
+              date={blog.entryDate}
+              body={blog.body.body}
+              imageData={blog.image}
+              caption={blog.imageCaption}
+            />
+          ))}
         </M.div>
       </M.div>
     </Layout>
@@ -206,26 +218,21 @@ export const Head = () => (
   />
 );
 
-// export const query = graphql`
-//   query ExpereinceQuery {
-//     allContentfulExperience {
-//       nodes {
-//         id
-//         dateRange
-//         descriptionPoints
-//         positionTitle
-//         picture {
-//           gatsbyImageData(width: 200, quality: 70)
-//           description
-//         }
-//         companyName
-//         order
-//       }
-//     }
-//     allContentfulSkill {
-//       nodes {
-//         skill
-//       }
-//     }
-//   }
-// `;
+export const query = graphql`
+  query BlogQuery {
+    allContentfulBlog {
+      nodes {
+        header
+        entryDate
+        image {
+          gatsbyImageData(layout: FULL_WIDTH)
+          description
+        }
+        imageCaption
+        body {
+          body
+        }
+      }
+    }
+  }
+`;

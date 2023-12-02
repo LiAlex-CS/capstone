@@ -32,7 +32,7 @@ export default function Layout({ children }) {
     >
       <BackgroundBlob
         className="
-          bg-gradient-to-br from-secondary-200 to-amber-200 dark:from-secondary-dark-200 dark:to-red-600 
+          bg-gradient-to-br from-secondary-200 to-amber-200 dark:from-secondary-dark-200 dark:to-green-700
           w-48 h-48 -mb-48 -mr-48 
           md:w-72 md:h-72 md:-mb-72 md:-mr-72 
           lg:w-96 lg:h-96 lg:-mb-96 lg:-mr-96 
@@ -52,7 +52,7 @@ export default function Layout({ children }) {
       />
       <BackgroundBlob
         className="
-          bg-amber-400 dark:bg-amber-600 
+          bg-yellow-300 dark:bg-green-600 
           w-28 h-28 -mb-28 -mr-28 
           md:w-40 md:h-40 md:-mb-40 md:-mr-40 
           lg:w-56 lg:h-56 lg:-mb-56 lg:-mr-56 
@@ -62,7 +62,7 @@ export default function Layout({ children }) {
       />
       <BackgroundBlob
         className="
-          bg-gradient-to-bl from-secondary-400 to-amber-300 dark:from-secondary-dark-400 dark:to-red-800 
+          bg-gradient-to-bl from-secondary-400 to-amber-300 dark:from-secondary-dark-400 dark:to-green-800 
           w-48 h-48 -mb-48 -mr-48 
           md:w-72 md:h-72 md:-mb-72 md:-mr-72 
           lg:w-96 lg:h-96 lg:-mb-96 lg:-mr-96 
@@ -72,7 +72,7 @@ export default function Layout({ children }) {
       />
       <BackgroundBlob
         className="
-          bg-gradient-to-l from-secondary-600 to-amber-500 dark:from-secondary-dark-600 dark:to-red-800 
+          bg-gradient-to-l from-secondary-600 to-amber-500 dark:from-secondary-dark-600 dark:to-green-900 
           w-20 h-20 -mb-20 -mr-20 
           md:w-32 md:h-32 md:-mb-32 md:-mr-32
           lg:w-40 lg:h-40 lg:-mb-40 lg:-mr-40
@@ -82,7 +82,7 @@ export default function Layout({ children }) {
       />
       <BackgroundBlob
         className="
-          bg-amber-400 dark:bg-amber-600 
+         bg-yellow-200 dark:bg-green-600 
           w-24 h-24 -mb-24 -mr-24 
           md:w-36 md:h-36 md:-mb-36 md:-mr-36 
           lg:w-48 lg:h-48 lg:-mb-48 lg:-mr-48 
@@ -92,7 +92,7 @@ export default function Layout({ children }) {
       />
       <BackgroundBlob
         className="
-          bg-gradient-to-tr from-secondary-200 to-amber-200 dark:from-secondary-dark-200 dark:to-red-600 
+          bg-gradient-to-tr from-secondary-200 to-amber-200 dark:from-secondary-dark-200 dark:to-green-700 
           w-36 h-36 -mb-36 -mr-36 
           md:w-56 md:h-56 md:-mb-56 md:-mr-56 
           lg:w-72 lg:h-72 lg:-mb-72 lg:-mr-72 

@@ -1,19 +1,23 @@
-import * as React from "react";
+import React, { useContext } from "react";
+import { ThemeContext } from "../components/Context";
 import Layout from "../components/Layout";
 import PortfolioSVG from "../components/svgs/PortfolioSVG/PortfolioSVG";
 import { StaticImage } from "gatsby-plugin-image";
+import { getImage, GatsbyImage } from "gatsby-plugin-image";
 import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 import { HiOutlineDocumentText } from "react-icons/hi";
 import { graphql } from "gatsby";
-import { PLarge } from "../components/Typography/Text";
+import { PLarge, Title } from "../components/Typography/Text";
 import { motion as M } from "framer-motion";
 import { fadeIn, spin } from "../styles/animations";
 import SEOHead from "../services/metadata/SEO";
 import strings from "../static_strings/index.strings";
 
 export default function Home({ data }) {
+  const { isDarkMode } = useContext(ThemeContext);
   // const introText = data.contentfulIntroText.text.text;
   // const resumeUrl = data.contentfulFile.file.file.url;
+  const profile = getImage(isDarkMode ? data.dark : data.light);
 
   const LINKEDIN_LINK = "LinkedIn link";
   const GITHUB_LINK = "Github link";
@@ -31,12 +35,14 @@ export default function Home({ data }) {
       >
         <div className="flex flex-wrap-reverse items-center justify-center mx-5 overflow-hidden">
           <div className="flex-col">
-            <h1>
-              <span className="sr-only">{strings.TITLE}</span>
-              <PortfolioSVG />
-            </h1>
-            <div className="mt-6 max-w-3xl">
-              {/* <PLarge>{introText}</PLarge> */}
+            <Title className="text-center">
+              MTE Capstone: The SensiTouch Glove
+            </Title>
+            <div className="mt-6">
+              <PLarge className="text-center">
+                The SensiTouch Glove allows for user for hand and arm prostetics
+                to regain feeling again.
+              </PLarge>
             </div>
           </div>
           <M.div
@@ -49,12 +55,17 @@ export default function Home({ data }) {
               transition={spin.reverse.transition}
               className="p-4"
             >
-              <StaticImage
+              {/* <StaticImage
                 quality={90}
                 src="../assets/images/profile_picture.webp"
                 width={256}
                 className="rounded-full"
                 alt={strings.PROFILE_HEADSHOT}
+              /> */}
+              <GatsbyImage
+                image={profile}
+                alt={strings.PROFILE_HEADSHOT}
+                className="rounded-full"
               />
             </M.div>
           </M.div>
@@ -120,19 +131,17 @@ export default function Home({ data }) {
 
 export const Head = () => <SEOHead />;
 
-// export const query = graphql`
-//   query HomeQuery {
-//     contentfulIntroText {
-//       text {
-//         text
-//       }
-//     }
-//     contentfulFile(name: { eq: "Resume" }) {
-//       file {
-//         file {
-//           url
-//         }
-//       }
-//     }
-//   }
-// `;
+export const query = graphql`
+  query ProfileQuery {
+    dark: file(relativePath: { eq: "profile_dark.png" }) {
+      childImageSharp {
+        gatsbyImageData(width: 256, quality: 95)
+      }
+    }
+    light: file(relativePath: { eq: "profile_light.png" }) {
+      childImageSharp {
+        gatsbyImageData(width: 256, quality: 95)
+      }
+    }
+  }
+`;

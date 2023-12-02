@@ -11,7 +11,7 @@ const Navbar = () => {
 
   const [navbarOpen, setNavbarOpen] = useState(false);
 
-  const LOGO_ALT = "Alex Li Logo";
+  const LOGO_ALT = "SensiTouch Logo";
 
   const data = useStaticQuery(graphql`
     query LogoQuery {
