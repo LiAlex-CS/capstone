@@ -4,7 +4,7 @@ const CONSTRUCTION_TOOLS =
   "As an example, the website you are on is constructed with the following tools:";
 const UPDATES = "Some of the project development updates:";
 const PATH = "/experience";
-const SEO_TITLE = "Experience: Alex Li - Portfolio";
+const SEO_TITLE = "Project Process: SensiTouch";
 const SEO_DESCRIPTION =
   "This is the Experience Page on my portfolio website. Learn about software skillset and past work experiences 👨‍💻. Alex Li - Experience.";
 

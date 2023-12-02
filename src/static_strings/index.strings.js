@@ -1,5 +1,5 @@
-const TITLE = "Portfolio: Alex Li";
-const PROFILE_HEADSHOT = "Profile headshot";
+const TITLE = "MTE Capstone: SensiTouch";
+const PROFILE_HEADSHOT = "SensiTouch Profile";
 
 const strings = { TITLE, PROFILE_HEADSHOT };
 
