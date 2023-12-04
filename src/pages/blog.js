@@ -73,7 +73,7 @@ const BlogSection = ({ header, date, body, imageData, caption, className }) => {
 export default function Blog({ data }) {
   const blogs = data.allContentfulBlog.nodes;
   const sortedBlogs = blogs.sort((a, b) =>
-    a.entryDate > b.entryDate ? 1 : b.entryDate > a.entryDate ? -1 : 0
+    a.entryDate > b.entryDate ? -1 : b.entryDate > a.entryDate ? 1 : 0
   );
 
   return (
